@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -7,25 +6,26 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-
 const ContactSection = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const { toast } = useToast();
-  
+  const {
+    toast
+  } = useToast();
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
-  
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
   useEffect(() => {
     if (inView) {
       controls.start('visible');
     }
   }, [controls, inView]);
-  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Form validation
     if (!name || !email || !message) {
       toast({
@@ -35,41 +35,35 @@ const ContactSection = () => {
       });
       return;
     }
-    
+
     // Here would be the actual form submission logic
-    
+
     toast({
       title: "Success",
-      description: "Your message has been sent. We'll contact you soon!",
+      description: "Your message has been sent. We'll contact you soon!"
     });
-    
+
     // Reset form
     setName('');
     setEmail('');
     setMessage('');
   };
-  
   const contactVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    hidden: {
+      opacity: 0,
+      y: 30
+    },
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.6
       }
     }
   };
-  
-  return (
-    <section id="contact" className="section-padding bg-financial-navy">
+  return <section id="contact" className="section-padding bg-financial-navy">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div
-          ref={ref}
-          initial="hidden"
-          animate={controls}
-          variants={contactVariants}
-          className="text-center mb-16"
-        >
+        <motion.div ref={ref} initial="hidden" animate={controls} variants={contactVariants} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Contact Us</h2>
           <p className="text-gray-300">Get in touch for expert financial guidance</p>
         </motion.div>
@@ -81,38 +75,18 @@ const ContactSection = () => {
               
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Input
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="bg-financial-navy/50 border-financial-purple/30 text-white placeholder:text-gray-400"
-                  />
+                  <Input type="text" placeholder="Your Name" value={name} onChange={e => setName(e.target.value)} className="bg-financial-navy/50 border-financial-purple/30 text-white placeholder:text-gray-400" />
                 </div>
                 
                 <div>
-                  <Input
-                    type="email"
-                    placeholder="Your Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="bg-financial-navy/50 border-financial-purple/30 text-white placeholder:text-gray-400"
-                  />
+                  <Input type="email" placeholder="Your Email" value={email} onChange={e => setEmail(e.target.value)} className="bg-financial-navy/50 border-financial-purple/30 text-white placeholder:text-gray-400" />
                 </div>
                 
                 <div>
-                  <Textarea
-                    placeholder="Your Message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="bg-financial-navy/50 border-financial-purple/30 text-white placeholder:text-gray-400 min-h-[120px]"
-                  />
+                  <Textarea placeholder="Your Message" value={message} onChange={e => setMessage(e.target.value)} className="bg-financial-navy/50 border-financial-purple/30 text-white placeholder:text-gray-400 min-h-[120px]" />
                 </div>
                 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-financial-lightpurple hover:bg-financial-purple text-white"
-                >
+                <Button type="submit" className="w-full bg-financial-lightpurple hover:bg-financial-purple text-white">
                   Send Message
                 </Button>
               </form>
@@ -128,8 +102,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">Call Us</p>
-                    <p className="text-gray-300">+91 9273 5550 69 (always available)</p>
-                    <p className="text-gray-300">+91 8317554046 (always available)</p>
+                    <p className="text-gray-300">+91 9677128566 (Whatsapp available)</p>
+                    <p className="text-gray-300">+91 8281956646 (Whatsapp available)</p>
                   </div>
                 </div>
                 
@@ -139,7 +113,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">Email Us</p>
-                    <p className="text-gray-300">arassociates319@gmail.com</p>
+                    <p className="text-gray-300">ar.associates1957@gmail.com</p>
                   </div>
                 </div>
                 
@@ -149,7 +123,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="text-white font-medium">Visit Us</p>
-                    <p className="text-gray-300">1st Floor Morning Tower, Opp DD Koppal Rd, Palarivattom Kochi-25</p>
+                    <p className="text-gray-300">1st Floor Harmony Tower, Opp SBI Koppam Branch, Palakkad Kerala-678001</p>
                   </div>
                 </div>
               </div>
@@ -157,8 +131,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
