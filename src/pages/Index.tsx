@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
@@ -7,12 +7,7 @@ import TestimonialSection from '@/components/TestimonialSection';
 import ChooseUsSection from '@/components/ChooseUsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-
-// Install required dependencies
-<lov-add-dependency>framer-motion@11.1.0</lov-add-dependency>
-<lov-add-dependency>react-intersection-observer@9.8.1</lov-add-dependency>
+import { motion } from 'framer-motion';
 
 const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -62,8 +57,6 @@ const ScrollToTopButton = () => {
     </motion.button>
   );
 };
-
-import { useState } from 'react';
 
 const Index = () => {
   return (
