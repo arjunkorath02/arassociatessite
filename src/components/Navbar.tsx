@@ -31,9 +31,14 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="text-financial-lightpurple font-bold text-2xl">AR</div>
-            <div className="text-white font-light">Associates</div>
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center">
+              <img 
+                src="https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png" 
+                alt="AR Associates Logo" 
+                className="h-12 md:h-16" 
+              />
+            </Link>
           </div>
           
           {/* Desktop Navigation */}
