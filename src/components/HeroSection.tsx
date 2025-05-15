@@ -10,6 +10,13 @@ const HeroSection = () => {
     setIsVisible(true);
   }, []);
   
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <section className="relative min-h-screen bg-financial-purple overflow-hidden">
       {/* Background Elements */}
@@ -47,7 +54,10 @@ const HeroSection = () => {
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <Button className="bg-financial-lightpurple hover:bg-financial-purple text-white px-8 py-6 rounded-lg text-lg font-medium">
+            <Button 
+              className="bg-financial-lightpurple hover:bg-financial-purple text-white px-8 py-6 rounded-lg text-lg font-medium"
+              onClick={scrollToContact}
+            >
               Get Started
             </Button>
           </motion.div>

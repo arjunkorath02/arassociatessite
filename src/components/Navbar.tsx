@@ -41,16 +41,6 @@ const Navbar = () => {
             </Link>
           </div>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-white hover:text-financial-lightpurple transition-colors">Home</Link>
-            <Link to="/about" className="text-white hover:text-financial-lightpurple transition-colors">About</Link>
-            <Link to="/contact" className="text-white hover:text-financial-lightpurple transition-colors">Contact</Link>
-            <Button variant="outline" className="border-financial-lightpurple text-financial-lightpurple hover:bg-financial-lightpurple hover:text-white">
-              Get Started
-            </Button>
-          </nav>
-          
           {/* Mobile Menu Button */}
           <Button 
             variant="ghost" 
@@ -61,41 +51,6 @@ const Navbar = () => {
             <Menu />
           </Button>
         </div>
-        
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden pt-4 pb-2 animate-fade-in">
-            <nav className="flex flex-col gap-4">
-              <Link 
-                to="/" 
-                className="text-white hover:text-financial-lightpurple px-4 py-2 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/about" 
-                className="text-white hover:text-financial-lightpurple px-4 py-2 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-              <Link 
-                to="/contact" 
-                className="text-white hover:text-financial-lightpurple px-4 py-2 transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-              <Button 
-                variant="outline" 
-                className="mt-2 border-financial-lightpurple text-financial-lightpurple hover:bg-financial-lightpurple hover:text-white"
-              >
-                Get Started
-              </Button>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );

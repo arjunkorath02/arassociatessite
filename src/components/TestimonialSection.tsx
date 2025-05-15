@@ -14,20 +14,38 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    content: "Outstanding customer service and expert financial guidance!",
-    author: "Jonathan Smith",
+    content: "AR Associates is one of the best Insurance providers in Palakkad district. I have very close contact with the staff and proprietor for the last five years. Their service is really appreciable. I recommend everyone to take the benefits of the services which they provide.",
+    author: "Ram Prakash",
     rating: 5
   },
   {
     id: 2,
-    content: "AR Associates transformed our financial outlook with their strategic advice.",
-    author: "Maria Johnson",
+    content: "Best in Palakkad for insurance related services and assistance. All my staffs and family members got insured by different policies with the help of Mrs Prabhavathy's guidance.",
+    author: "Anil Kumar",
     rating: 5
   },
   {
     id: 3,
-    content: "Professional, knowledgeable, and always available when needed.",
-    author: "David Williams",
+    content: "I sought assistance from Mrs. Prabhavathi to choose a mutual fund investments (SIP). Her recommendations were aligned with my objectives, and she guided me through the investment process efficiently.",
+    author: "Harsha Sarath",
+    rating: 5
+  },
+  {
+    id: 4,
+    content: "Excellent service. Honestly well explained on each product. Advising benefits of clients with low premiums. Always reminders sending before the expiry.",
+    author: "Jyothi Pulakkat",
+    rating: 5
+  },
+  {
+    id: 5,
+    content: "Very professional investment service providers. Especially mentioning Prabhavathi madam who is very knowledgable and helped me to understand the different options and invest in the the right ones. Highly recommend.",
+    author: "Deepshi Anna",
+    rating: 5
+  },
+  {
+    id: 6,
+    content: "It seems to be a wonderful experience with AR Associates mainly about their services and fair dealings.",
+    author: "Ramdas Vazhappulli Menon",
     rating: 5
   }
 ];
@@ -49,7 +67,7 @@ const TestimonialSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextTestimonial();
-    }, 5000);
+    }, 7000);
     
     return () => clearInterval(interval);
   }, []);

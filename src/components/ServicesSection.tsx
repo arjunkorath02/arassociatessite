@@ -107,7 +107,7 @@ const ServicesSection = () => {
             
             <motion.div variants={itemVariants}>
               <ServiceCard 
-                title="Investment Plans" 
+                title="Insurance Plans" 
                 icon={<Briefcase size={32} />}
               >
                 <p>Insurance plans that provide both protection and wealth accumulation.</p>
