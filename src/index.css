@@ -54,7 +54,7 @@
   }
   
   .glass-card {
-    @apply bg-financial-gray bg-opacity-60 backdrop-blur-xl border border-white/30 shadow-lg will-change-transform;
+    @apply bg-financial-gray/40 bg-opacity-60 backdrop-blur-xl border border-white/20 shadow-lg will-change-transform;
   }
   
   .section-padding {
@@ -66,13 +66,15 @@
   }
 
   .enhanced-glassmorphism {
-    @apply bg-white/15 backdrop-blur-xl border border-white/30 rounded-xl shadow-lg;
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20 rounded-xl shadow-xl;
   }
 }
 
 /* Add global animation smoothness */
 * {
   backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .will-change-transform {
@@ -105,4 +107,26 @@
 
 .animate-slide-up {
   animation: slideUp 0.3s ease-out forwards;
+}
+
+/* Enhanced glassmorphism effects */
+.glassmorphism-dark {
+  background: rgba(26, 31, 44, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glassmorphism-light {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glassmorphism-purple {
+  background: rgba(151, 130, 224, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(151, 130, 224, 0.3);
 }

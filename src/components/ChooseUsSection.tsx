@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Users, DollarSign, Clock } from 'lucide-react';
+import { Users, Shield, Clock } from 'lucide-react';
 
 interface FeatureProps {
   title: string;
@@ -94,8 +94,8 @@ const ChooseUsSection = () => {
           <FeatureCard 
             title="Trusted Distributor" 
             description="Providing reliable and transparent financial services." 
-            icon={<DollarSign size={24} />}
-            imageUrl="https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/trusted-distributor.jpg"
+            icon={<Shield size={24} color="#9782e0" />}
+            imageUrl="/lovable-uploads/66c10701-ed77-4e87-bb1b-e341d515efed.png"
           />
           
           <FeatureCard 
