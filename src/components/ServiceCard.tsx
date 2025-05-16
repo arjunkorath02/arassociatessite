@@ -14,7 +14,7 @@ const ServiceCard = ({ title, icon, children, className, delay = 0 }: ServiceCar
   return (
     <div 
       className={cn(
-        "glass-card rounded-xl p-6 animated-card",
+        "glass-card rounded-xl p-6 animated-card enhanced-glassmorphism",
         className
       )}
       style={{

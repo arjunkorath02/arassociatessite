@@ -20,12 +20,12 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen bg-financial-purple overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-financial-navy opacity-80"></div>
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-financial-navy opacity-70"></div>
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80')] bg-cover bg-center opacity-30 mix-blend-overlay"></div>
       
-      {/* Animated Gradient Shape */}
-      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-r from-financial-purple to-financial-lightpurple opacity-20 animate-pulse-slow"></div>
-      <div className="absolute top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-l from-financial-purple to-financial-lightpurple opacity-20 animate-pulse-slow"></div>
+      {/* Animated Gradient Shape for better glassmorphism */}
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-gradient-to-r from-financial-purple to-financial-lightpurple opacity-30 blur-3xl animate-pulse-slow"></div>
+      <div className="absolute top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-l from-financial-purple to-financial-lightpurple opacity-30 blur-3xl animate-pulse-slow"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10 flex flex-col justify-center h-screen pt-16">
         <div className="max-w-3xl">
@@ -33,7 +33,7 @@ const HeroSection = () => {
             className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             Secure Your Financial Future <br />
             <span className="text-gradient">with AR Associates</span>
@@ -43,7 +43,7 @@ const HeroSection = () => {
             className="text-lg md:text-xl text-gray-300 mb-8 max-w-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             Your trusted partner in equity fund distribution and executive advisory services. 
             Building wealth and protecting what matters most.
@@ -52,10 +52,10 @@ const HeroSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
           >
             <Button 
-              className="bg-financial-lightpurple hover:bg-financial-purple text-white px-8 py-6 rounded-lg text-lg font-medium"
+              className="bg-financial-lightpurple hover:bg-financial-purple text-white px-8 py-6 rounded-lg text-lg font-medium enhanced-glassmorphism border border-white/20"
               onClick={scrollToContact}
             >
               Get Started

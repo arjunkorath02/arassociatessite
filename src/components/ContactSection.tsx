@@ -26,7 +26,7 @@ const ContactSection = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
+        duration: 0.5
       }
     }
   };
@@ -45,13 +45,13 @@ const ContactSection = () => {
           <p className="text-gray-300">Get in touch for expert financial guidance</p>
         </motion.div>
 
-        <div className="glass-card rounded-xl p-6 md:p-10 max-w-3xl mx-auto">
+        <div className="enhanced-glassmorphism rounded-xl p-6 md:p-10 max-w-3xl mx-auto bg-financial-gray/60">
           <div>
             <h3 className="text-xl font-semibold text-white mb-6">Contact Information</h3>
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/30 flex items-center justify-center text-financial-lightpurple">
+                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
                   <Phone size={18} />
                 </div>
                 <div>
@@ -62,7 +62,7 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-start">
-                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/30 flex items-center justify-center text-financial-lightpurple">
+                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
                   <Mail size={18} />
                 </div>
                 <div>
@@ -72,7 +72,7 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-start">
-                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/30 flex items-center justify-center text-financial-lightpurple">
+                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
                   <MapPin size={18} />
                 </div>
                 <div>

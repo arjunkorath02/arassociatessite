@@ -36,6 +36,7 @@ const ScrollToTopButton = () => {
     <motion.button
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
+      transition={{ duration: 0.3 }}
       onClick={scrollToTop}
       className="fixed bottom-8 right-8 p-3 bg-financial-lightpurple rounded-full shadow-lg z-50 hover:bg-financial-purple transition-colors duration-300"
       aria-label="Scroll to top"
@@ -61,14 +62,23 @@ const ScrollToTopButton = () => {
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-financial-navy via-financial-purple to-financial-darkpurple overflow-hidden">
-      <Navbar />
-      <HeroSection />
-      <ServicesSection />
-      <TestimonialSection />
-      <ChooseUsSection />
-      <ContactSection />
-      <Footer />
-      <ScrollToTopButton />
+      {/* Background elements for glassmorphism effect */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-financial-purple/30 blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-80 h-80 rounded-full bg-financial-lightpurple/20 blur-3xl"></div>
+        <div className="absolute top-2/3 left-1/3 w-72 h-72 rounded-full bg-financial-darkpurple/30 blur-3xl"></div>
+      </div>
+      
+      <div className="relative z-10">
+        <Navbar />
+        <HeroSection />
+        <ServicesSection />
+        <TestimonialSection />
+        <ChooseUsSection />
+        <ContactSection />
+        <Footer />
+        <ScrollToTopButton />
+      </div>
     </div>
   );
 };

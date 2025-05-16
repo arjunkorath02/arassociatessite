@@ -50,11 +50,11 @@
 
 @layer components {
   .animated-card {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 will-change-transform;
   }
   
   .glass-card {
-    @apply bg-financial-gray bg-opacity-90 backdrop-blur-sm border border-white/10 shadow-lg;
+    @apply bg-financial-gray bg-opacity-70 backdrop-blur-md border border-white/20 shadow-lg will-change-transform;
   }
   
   .section-padding {
@@ -63,5 +63,9 @@
   
   .text-gradient {
     @apply bg-gradient-to-r from-financial-lightpurple to-financial-white text-transparent bg-clip-text;
+  }
+
+  .enhanced-glassmorphism {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl shadow-lg;
   }
 }

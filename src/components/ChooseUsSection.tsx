@@ -23,7 +23,7 @@ const FeatureCard = ({ title, description, icon, imageUrl }: FeatureProps) => {
 
   const variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
 
   return (
@@ -32,13 +32,13 @@ const FeatureCard = ({ title, description, icon, imageUrl }: FeatureProps) => {
       initial="hidden"
       animate={controls}
       variants={variants}
-      className="glass-card rounded-xl overflow-hidden"
+      className="glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
     >
       <div className="h-48 overflow-hidden">
         <img 
           src={imageUrl} 
           alt={title} 
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
       </div>
       <div className="p-6">
@@ -66,11 +66,11 @@ const ChooseUsSection = () => {
   
   const headerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
   
   return (
-    <section className="section-padding bg-financial-navy">
+    <section className="section-padding bg-financial-navy bg-opacity-80 backdrop-blur-md relative">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -95,7 +95,7 @@ const ChooseUsSection = () => {
             title="Trusted Distributor" 
             description="Providing reliable and transparent financial services." 
             icon={<DollarSign size={24} />}
-            imageUrl="https://images.unsplash.com/photo-1565514020179-026b92b2d0b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+            imageUrl="https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/trusted-distributor.jpg"
           />
           
           <FeatureCard 

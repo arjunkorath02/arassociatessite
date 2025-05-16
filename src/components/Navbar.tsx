@@ -26,18 +26,20 @@ const Navbar = () => {
     <header 
       className={cn(
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        isScrolled ? "bg-financial-navy bg-opacity-90 backdrop-blur-sm shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-financial-navy bg-opacity-80 backdrop-blur-md shadow-lg" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <img 
-                src="https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png" 
-                alt="AR Associates Logo" 
-                className="h-12 md:h-16" 
-              />
+              <div className="bg-white/20 p-1 rounded-lg backdrop-blur-sm">
+                <img 
+                  src="https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png" 
+                  alt="AR Associates Logo" 
+                  className="h-12 md:h-16" 
+                />
+              </div>
             </Link>
           </div>
           
