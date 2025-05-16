@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
   {
     id: 5,
     content: "Very professional investment service providers. Especially mentioning Prabhavathi madam who is very knowledgable and helped me to understand the different options and invest in the the right ones. Highly recommend.",
-    author: "Deepshi Anna",
+    author: "Deepthi Anna",
     rating: 5
   },
   {
@@ -53,6 +53,9 @@ const testimonials: Testimonial[] = [
 const TestimonialSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const testimonialRef = useRef<HTMLDivElement>(null);
   
   const nextTestimonial = () => {
     setDirection(1);
@@ -71,6 +74,30 @@ const TestimonialSection = () => {
     
     return () => clearInterval(interval);
   }, []);
+  
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 75) {
+      // Swipe left, go to next
+      nextTestimonial();
+    }
+    
+    if (touchStart - touchEnd < -75) {
+      // Swipe right, go to previous
+      prevTestimonial();
+    }
+    
+    // Reset touch positions
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
   
   const variants = {
     enter: (direction: number) => ({
@@ -116,6 +143,10 @@ const TestimonialSection = () => {
               exit="exit"
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="glass-card rounded-xl p-8"
+              ref={testimonialRef}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
             >
               <div className="flex justify-center mb-6">
                 {renderStars(testimonials[currentIndex].rating)}

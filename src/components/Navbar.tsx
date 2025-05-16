@@ -1,13 +1,10 @@
 
 import { useState, useEffect } from 'react';
-import { Menu } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   useEffect(() => {
     const handleScroll = () => {
@@ -42,16 +39,6 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
-          
-          {/* Mobile Menu Button */}
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="md:hidden text-white"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <Menu />
-          </Button>
         </div>
       </div>
     </header>
