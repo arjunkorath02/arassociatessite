@@ -26,7 +26,8 @@ const ContactSection = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
+        duration: 0.5,
+        ease: [0.25, 0.1, 0.25, 1]
       }
     }
   };
@@ -45,7 +46,7 @@ const ContactSection = () => {
           <p className="text-gray-300">Get in touch for expert financial guidance</p>
         </motion.div>
 
-        <div className="enhanced-glassmorphism rounded-xl p-6 md:p-10 max-w-3xl mx-auto bg-financial-gray/60">
+        <div className="enhanced-glassmorphism rounded-xl p-6 md:p-10 max-w-3xl mx-auto bg-financial-gray/40 backdrop-blur-xl will-change-transform">
           <div>
             <h3 className="text-xl font-semibold text-white mb-6">Contact Information</h3>
 

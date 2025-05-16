@@ -23,7 +23,7 @@ const FeatureCard = ({ title, description, icon, imageUrl }: FeatureProps) => {
 
   const variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] } }
   };
 
   return (
@@ -32,13 +32,13 @@ const FeatureCard = ({ title, description, icon, imageUrl }: FeatureProps) => {
       initial="hidden"
       animate={controls}
       variants={variants}
-      className="glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300"
+      className="glass-card rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 will-change-transform"
     >
       <div className="h-48 overflow-hidden">
         <img 
           src={imageUrl} 
           alt={title} 
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 will-change-transform"
         />
       </div>
       <div className="p-6">
@@ -66,11 +66,11 @@ const ChooseUsSection = () => {
   
   const headerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] } }
   };
   
   return (
-    <section className="section-padding bg-financial-navy bg-opacity-80 backdrop-blur-md relative">
+    <section className="section-padding bg-financial-navy bg-opacity-70 backdrop-blur-xl relative">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}

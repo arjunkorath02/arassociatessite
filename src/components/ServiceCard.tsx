@@ -1,6 +1,7 @@
 
 import { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 interface ServiceCardProps {
   title: string;
@@ -12,19 +13,24 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, icon, children, className, delay = 0 }: ServiceCardProps) => {
   return (
-    <div 
+    <motion.div 
       className={cn(
         "glass-card rounded-xl p-6 animated-card enhanced-glassmorphism",
         className
       )}
-      style={{
-        animationDelay: `${delay}ms`
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.4,
+        delay: delay * 0.1,
+        ease: [0.25, 0.1, 0.25, 1]
       }}
     >
       <div className="mb-4 text-financial-lightpurple">{icon}</div>
       <h3 className="text-xl font-semibold text-white mb-3">{title}</h3>
       <div className="text-gray-300">{children}</div>
-    </div>
+    </motion.div>
   );
 };
 

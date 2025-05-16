@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
-              <div className="bg-white/20 p-1 rounded-lg backdrop-blur-sm">
+              <div className="bg-white/30 p-2 rounded-xl backdrop-blur-lg border border-white/30 shadow-lg will-change-transform transition-all duration-300 hover:bg-white/40">
                 <img 
                   src="https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png" 
                   alt="AR Associates Logo" 
