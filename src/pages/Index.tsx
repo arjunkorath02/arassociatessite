@@ -5,6 +5,7 @@ import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialSection from '@/components/TestimonialSection';
 import ChooseUsSection from '@/components/ChooseUsSection';
+import EmpaneledCompanies from '@/components/EmpaneledCompanies';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
@@ -76,6 +77,7 @@ const Index = () => {
         <ServicesSection />
         <TestimonialSection />
         <ChooseUsSection />
+        <EmpaneledCompanies />
         <ContactSection />
         <Footer />
         <ScrollToTopButton />
