@@ -47,6 +47,60 @@ const testimonials: Testimonial[] = [
     content: "It seems to be a wonderful experience with AR Associates mainly about their services and fair dealings.",
     author: "Ramdas Vazhappulli Menon",
     rating: 5
+  },
+  {
+    id: 7,
+    content: "Very good service, they inform me every time a new project comes up, very good behavior, may the company and them personally prosper...",
+    author: "Raghu Athipotta",
+    rating: 5
+  },
+  {
+    id: 8,
+    content: "Very sincere and cooperative with her Clients and we are very satisfied with her services rendered to us.",
+    author: "Dasan Ambat",
+    rating: 5
+  },
+  {
+    id: 9,
+    content: "Highly rated for professionalism and quality of service.",
+    author: "Vasudevan Korath",
+    rating: 5
+  },
+  {
+    id: 10,
+    content: "Excellent service and highly recommended....",
+    author: "Sugesh Bala Subramanian",
+    rating: 5
+  },
+  {
+    id: 11,
+    content: "Excellent personalised service.",
+    author: "Mohan Menon",
+    rating: 5
+  },
+  {
+    id: 12,
+    content: "Excellent service and highly recommended.",
+    author: "Rohit K",
+    rating: 5
+  },
+  {
+    id: 13,
+    content: "Excellent.",
+    author: "Raghunath Vazhappulli",
+    rating: 5
+  },
+  {
+    id: 14,
+    content: "I had a great experience with this mutual fund distributor and Insurance advisor (Health and Life) in Palakkad. They were very professional, transparent, and helped me understand the various options clearly before making any investment. The advice given was tailored to my financial goals, and I felt confident throughout the process. I really appreciate the time and effort taken to explain everything patiently. If you’re looking for trustworthy mutual fund and insurance services in Palakkad, I highly recommend them.",
+    author: "Arjun Kotharamath",
+    rating: 5
+  },
+  {
+    id: 15,
+    content: "I had a great experience with this mutual fund distributor and insurance advisor in Palakkad. They took the time to understand my financial goals and provided clear, well-informed advice on both mutual fund investments and insurance plans. What impressed me the most was their transparent approach and genuine commitment to helping clients make the right choices. I feel much more confident about my financial planning after working with them. Highly recommended for anyone looking for trustworthy and personalized financial guidance in Palakkad.",
+    author: "Ashwin Kotharamath",
+    rating: 5
   }
 ];
 
