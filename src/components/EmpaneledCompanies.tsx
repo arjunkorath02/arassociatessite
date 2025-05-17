@@ -9,7 +9,7 @@ const assetManagementCompanies = [
   { name: "Axis Mutual Fund", logo: "/lovable-uploads/b75f74db-b66b-456e-972a-0f75a858ed30.png" },
   { name: "Kotak Mahindra Mutual Fund", logo: "/lovable-uploads/4f26afac-8a85-4c4c-94f8-7404af171023.png" },
   { name: "Aditya Birla Sun Life", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Aditya%20Birla.png" },
-  { name: "UTI Mutual Fund", logo: "/lovable-uploads/9e86d84a-c22c-4382-9a82-59007e1714b0.png" },
+  { name: "UTI Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/UTI%20Mutual%20Fund.webp" },
   { name: "Tata Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/TATA%20Mutual%20Fund.png" },
   { name: "Nippon India", logo: "/lovable-uploads/af48665a-017a-47c6-adec-efa71c9f7c7c.png" },
   { name: "DSP Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/DSP%20Mutual%20Fund.svg" },
