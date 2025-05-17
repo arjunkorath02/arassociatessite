@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 // Array of AMFI registered Asset Management Companies with updated logo paths
 const assetManagementCompanies = [
-  { name: "HDFC Mutual Fund", logo: "/lovable-uploads/39182633-3fe8-41c8-8951-e0151f09d408.png" },
+  { name: "HDFC Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/hdfc_logo.webp" },
   { name: "SBI Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/SBI%20Mutual%20fund.svg" },
   { name: "ICICI Prudential", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/ICICI%20Pru.jpg" },
   { name: "Axis Mutual Fund", logo: "/lovable-uploads/b75f74db-b66b-456e-972a-0f75a858ed30.png" },
