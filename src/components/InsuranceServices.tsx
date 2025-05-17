@@ -4,18 +4,18 @@ import { motion } from 'framer-motion';
 // Insurance company logos and names updated with proper paths
 const insuranceCompanies = [
   {
-    name: "TATA AIA - Life Insurance",
-    logo: "/lovable-uploads/6b75a38c-f124-4d76-ba2b-ce696ef09c77.png",
+    name: "TATA AIA Life Insurance",
+    logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/TATA%20AIA.svg",
     description: "Comprehensive life insurance solutions"
   },
   {
     name: "Star Health Insurance",
-    logo: "/lovable-uploads/4c05201a-71c6-499d-a7ae-7827b6f2d38b.png",
+    logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/star%20health.svg",
     description: "Specialized health insurance plans"
   },
   {
-    name: "ICICI Life Insurance",
-    logo: "/lovable-uploads/1b08aaf2-6855-4f63-9f87-c291bca40129.png",
+    name: "ICICI Prudential Life Insurance",
+    logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/ICICI%20Life%20Insurance.png",
     description: "Diverse life insurance products"
   }
 ];
