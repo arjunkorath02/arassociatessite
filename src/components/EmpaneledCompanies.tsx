@@ -12,7 +12,7 @@ const assetManagementCompanies = [
   { name: "UTI Mutual Fund", logo: "/lovable-uploads/9e86d84a-c22c-4382-9a82-59007e1714b0.png" },
   { name: "Tata Mutual Fund", logo: "/lovable-uploads/0dd542b3-6147-4c69-a6fa-11a622706bc8.png" },
   { name: "Nippon India", logo: "/lovable-uploads/af48665a-017a-47c6-adec-efa71c9f7c7c.png" },
-  { name: "DSP Mutual Fund", logo: "/lovable-uploads/5fc317e4-0363-4a2a-a1b6-ba7f10568efe.png" },
+  { name: "DSP Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/DSP%20Mutual%20Fund.svg" },
   { name: "Canara Robeco", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Canara%20Robeco.png" },
   { name: "Edelweiss Mutual Fund", logo: "/lovable-uploads/de4e3841-ba4e-440f-8447-0a0a63b4bed9.png" },
   { name: "Bajaj Finserv", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Bajaj%20Finserv.svg" }
