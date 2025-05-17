@@ -26,6 +26,18 @@ const assetManagementCompanies = [
   {
     name: "Aditya Birla Sun Life",
     logo: "https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/aditya_birla_amc.png"
+  },
+  {
+    name: "UTI Mutual Fund",
+    logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/UTI.png"
+  },
+  {
+    name: "Tata Mutual Fund",
+    logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/TATA.png"
+  },
+  {
+    name: "Nippon India",
+    logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/Nippon-India.png"
   }
 ];
 

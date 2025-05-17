@@ -6,6 +6,7 @@ import ServicesSection from '@/components/ServicesSection';
 import TestimonialSection from '@/components/TestimonialSection';
 import ChooseUsSection from '@/components/ChooseUsSection';
 import EmpaneledCompanies from '@/components/EmpaneledCompanies';
+import GoogleReviewSection from '@/components/GoogleReviewSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
@@ -78,6 +79,7 @@ const Index = () => {
         <TestimonialSection />
         <ChooseUsSection />
         <EmpaneledCompanies />
+        <GoogleReviewSection />
         <ContactSection />
         <Footer />
         <ScrollToTopButton />
