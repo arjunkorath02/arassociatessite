@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 
 // Array of AMFI registered Asset Management Companies with updated logo paths
@@ -25,8 +26,8 @@ const fadeInVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1,
-      duration: 0.5,
+      delay: i * 0.05,
+      duration: 0.4,
       ease: "easeOut"
     }
   })
@@ -46,10 +47,12 @@ const EmpaneledCompanies = () => {
             y: 0
           }} 
           viewport={{
-            once: true
+            once: true,
+            margin: "-50px"
           }} 
           transition={{
-            duration: 0.7
+            duration: 0.5,
+            ease: "easeOut"
           }} 
           className="text-center mb-12"
         >
@@ -74,8 +77,10 @@ const EmpaneledCompanies = () => {
               <div className="glassmorphism-light p-4 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 w-full aspect-square flex items-center justify-center">
                 <img 
                   src={company.logo} 
-                  alt={`${company.name} logo`} 
-                  className="w-full max-h-24 object-contain" 
+                  alt={`${company.name} logo`}
+                  loading="eager"
+                  className="w-full max-h-24 object-contain transform scale-110" 
+                  style={{ imageRendering: 'crisp-edges' }}
                 />
               </div>
               <p className="mt-3 text-sm text-white text-center font-medium">{company.name}</p>

@@ -55,6 +55,7 @@ const TestimonialSection = () => {
   const [direction, setDirection] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const testimonialRef = useRef<HTMLDivElement>(null);
   
   const nextTestimonial = () => {
@@ -68,14 +69,17 @@ const TestimonialSection = () => {
   };
   
   useEffect(() => {
+    if (isPaused) return;
+    
     const interval = setInterval(() => {
       nextTestimonial();
     }, 7000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
   
   const handleTouchStart = (e: React.TouchEvent) => {
+    setIsPaused(true);
     setTouchStart(e.targetTouches[0].clientX);
   };
   
@@ -97,6 +101,9 @@ const TestimonialSection = () => {
     // Reset touch positions
     setTouchStart(0);
     setTouchEnd(0);
+    
+    // Resume autoplay after 3 seconds
+    setTimeout(() => setIsPaused(false), 3000);
   };
   
   const variants = {
@@ -106,11 +113,19 @@ const TestimonialSection = () => {
     }),
     center: {
       x: 0,
-      opacity: 1
+      opacity: 1,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.4 }
+      }
     },
     exit: (direction: number) => ({
       x: direction < 0 ? 200 : -200,
-      opacity: 0
+      opacity: 0,
+      transition: {
+        x: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.4 }
+      }
     })
   };
   
@@ -141,12 +156,14 @@ const TestimonialSection = () => {
               initial="enter"
               animate="center"
               exit="exit"
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="glass-card rounded-xl p-8"
+              className="glass-card rounded-xl p-8 framer-motion-fix"
               ref={testimonialRef}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              style={{ transform: "translate3d(0,0,0)" }}
             >
               <div className="flex justify-center mb-6">
                 {renderStars(testimonials[currentIndex].rating)}

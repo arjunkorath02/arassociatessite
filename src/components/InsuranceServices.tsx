@@ -28,7 +28,7 @@ const InsuranceServices = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Insurance Services</h2>
@@ -42,14 +42,16 @@ const InsuranceServices = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
               className="glassmorphism-purple rounded-xl p-6 flex flex-col items-center text-center"
             >
-              <div className="bg-white/90 rounded-xl p-4 w-full h-32 flex items-center justify-center mb-6">
+              <div className="bg-white/90 rounded-xl p-4 w-full h-32 flex items-center justify-center mb-6 overflow-hidden">
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
-                  className="max-h-24 max-w-full object-contain"
+                  className="max-h-24 max-w-full object-contain transform scale-105"
+                  style={{ imageRendering: 'crisp-edges' }}
+                  loading="eager"
                 />
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">{company.name}</h3>
