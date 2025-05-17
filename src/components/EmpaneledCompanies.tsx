@@ -14,7 +14,8 @@ const assetManagementCompanies = [
   { name: "Nippon India", logo: "/lovable-uploads/af48665a-017a-47c6-adec-efa71c9f7c7c.png" },
   { name: "DSP Mutual Fund", logo: "/lovable-uploads/5fc317e4-0363-4a2a-a1b6-ba7f10568efe.png" },
   { name: "Canara Robeco", logo: "/lovable-uploads/a605ccc2-17e0-40c7-9f0d-0ac0d6e9eb2f.png" },
-  { name: "Edelweiss Mutual Fund", logo: "/lovable-uploads/de4e3841-ba4e-440f-8447-0a0a63b4bed9.png" }
+  { name: "Edelweiss Mutual Fund", logo: "/lovable-uploads/de4e3841-ba4e-440f-8447-0a0a63b4bed9.png" },
+  { name: "Bajaj Finserv", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Bajaj%20Finserv.svg" }
 ];
 
 const fadeInVariants = {
