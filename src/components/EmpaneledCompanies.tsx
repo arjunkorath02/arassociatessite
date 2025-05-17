@@ -8,7 +8,7 @@ const assetManagementCompanies = [
   { name: "ICICI Prudential", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/ICICI%20Pru.png" },
   { name: "Axis Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Axis_Mutual_Fund_Logo.svg" },
   { name: "Kotak Mahindra Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/kotak-logo.webp" },
-  { name: "Aditya Birla Sun Life", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Aditya%20Birla.png" },
+  { name: "Aditya Birla Sun Life", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Adita%20Birla.png" },
   { name: "UTI Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/UTI.svg" },
   { name: "Tata Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/TATA%20Mutual%20Fund.svg" },
   { name: "Nippon India", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/nipponindia-mutual-fund-logo.webp" },
