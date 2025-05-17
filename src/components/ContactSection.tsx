@@ -59,10 +59,10 @@ const ContactSection = () => {
 
             <div className="space-y-6">
               <div className="flex items-start">
-                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
+                <div className="shrink-0 mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
                   <Phone size={18} />
                 </div>
-                <div>
+                <div className="flex-1">
                   <p className="text-white font-medium">Call Us</p>
                   <a 
                     href="tel:+919677128566" 
@@ -80,14 +80,14 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-start">
-                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
+                <div className="shrink-0 mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
                   <Mail size={18} />
                 </div>
-                <div>
+                <div className="flex-1">
                   <p className="text-white font-medium">Email Us</p>
                   <a 
                     href="mailto:ar.associates1957@gmail.com"
-                    className="text-gray-300 hover:text-financial-lightpurple transition-colors duration-200"
+                    className="text-gray-300 break-words hover:text-financial-lightpurple transition-colors duration-200"
                   >
                     ar.associates1957@gmail.com
                   </a>
@@ -95,10 +95,10 @@ const ContactSection = () => {
               </div>
 
               <div className="flex items-start">
-                <div className="mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
+                <div className="shrink-0 mt-1 mr-4 w-10 h-10 rounded-full bg-financial-purple/50 flex items-center justify-center text-financial-lightpurple">
                   <MapPin size={18} />
                 </div>
-                <div>
+                <div className="flex-1">
                   <p className="text-white font-medium">Visit Us</p>
                   <a 
                     href="https://maps.app.goo.gl/aHoAS2GTSzKQqYDHA"
