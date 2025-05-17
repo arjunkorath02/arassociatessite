@@ -15,7 +15,8 @@ const assetManagementCompanies = [
   { name: "DSP Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/DSP%20Mutual%20Fund.svg" },
   { name: "Canara Robeco", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Canara%20Robeco.png" },
   { name: "Edelweiss Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Edelweiss%20Mutual%20Fund.svg" },
-  { name: "Bajaj Finserv", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Bajaj%20Finserv.svg" }
+  { name: "Bajaj Finserv", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Bajaj%20Finserv.svg" },
+  { name: "Franklin Templeton", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Franklin%20Templeton.svg" }
 ];
 
 const fadeInVariants = {
