@@ -1,20 +1,19 @@
-
 import { motion } from 'framer-motion';
 
-// Array of AMFI registered Asset Management Companies
+// Array of AMFI registered Asset Management Companies with updated logo paths
 const assetManagementCompanies = [
-  { name: "HDFC Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/HDFC.png" },
-  { name: "SBI Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/SBI.png" },
-  { name: "ICICI Prudential", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/ICICI.png" },
-  { name: "Axis Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/AXIS.png" },
-  { name: "Kotak Mahindra AMC", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/Kotak.png" },
-  { name: "Aditya Birla Sun Life", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/ABSL.png" },
-  { name: "UTI Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/UTI.png" },
-  { name: "Tata Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/TATA.png" },
-  { name: "Nippon India", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/Nippon-India.png" },
-  { name: "DSP Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/DSP.png" },
-  { name: "Canara Robeco", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/Canara-Robeco.png" },
-  { name: "Edelweiss Mutual Fund", logo: "https://etmoney-blog-images.s3-ap-southeast-1.amazonaws.com/wp-content/uploads/2023/04/Edelweiss.png" }
+  { name: "HDFC Mutual Fund", logo: "/lovable-uploads/39182633-3fe8-41c8-8951-e0151f09d408.png" },
+  { name: "SBI Mutual Fund", logo: "/lovable-uploads/a4ce71d1-72e0-4c93-8b20-49dc317c9558.png" },
+  { name: "ICICI Prudential", logo: "/lovable-uploads/267fe6c0-8366-4197-ae4e-1f7f6749aa3f.png" },
+  { name: "Axis Mutual Fund", logo: "/lovable-uploads/b75f74db-b66b-456e-972a-0f75a858ed30.png" },
+  { name: "Kotak Mahindra AMC", logo: "/lovable-uploads/4f26afac-8a85-4c4c-94f8-7404af171023.png" },
+  { name: "Aditya Birla Sun Life", logo: "/lovable-uploads/0a569d65-0a82-488c-8960-b28d34a43c3a.png" },
+  { name: "UTI Mutual Fund", logo: "/lovable-uploads/9e86d84a-c22c-4382-9a82-59007e1714b0.png" },
+  { name: "Tata Mutual Fund", logo: "/lovable-uploads/0dd542b3-6147-4c69-a6fa-11a622706bc8.png" },
+  { name: "Nippon India", logo: "/lovable-uploads/af48665a-017a-47c6-adec-efa71c9f7c7c.png" },
+  { name: "DSP Mutual Fund", logo: "/lovable-uploads/5fc317e4-0363-4a2a-a1b6-ba7f10568efe.png" },
+  { name: "Canara Robeco", logo: "/lovable-uploads/a605ccc2-17e0-40c7-9f0d-0ac0d6e9eb2f.png" },
+  { name: "Edelweiss Mutual Fund", logo: "/lovable-uploads/de4e3841-ba4e-440f-8447-0a0a63b4bed9.png" }
 ];
 
 const fadeInVariants = {

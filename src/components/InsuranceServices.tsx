@@ -1,21 +1,21 @@
 
 import { motion } from 'framer-motion';
 
-// Insurance company logos and names
+// Insurance company logos and names updated with proper paths
 const insuranceCompanies = [
   {
     name: "TATA AIA - Life Insurance",
-    logo: "https://www.tataaia.com/content/dam/tataaia/brand-assets/icons/tata-aia-brand-logo.svg",
+    logo: "/lovable-uploads/6b75a38c-f124-4d76-ba2b-ce696ef09c77.png",
     description: "Comprehensive life insurance solutions"
   },
   {
     name: "Star Health Insurance",
-    logo: "https://www.starhealth.in/wp-content/uploads/2021/07/logo.png",
+    logo: "/lovable-uploads/4c05201a-71c6-499d-a7ae-7827b6f2d38b.png",
     description: "Specialized health insurance plans"
   },
   {
     name: "ICICI Life Insurance",
-    logo: "https://www.iciciprulife.com/content/dam/iciciprulif/logo-images/logo-c.png",
+    logo: "/lovable-uploads/1b08aaf2-6855-4f63-9f87-c291bca40129.png",
     description: "Diverse life insurance products"
   }
 ];
