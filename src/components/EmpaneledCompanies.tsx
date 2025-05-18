@@ -28,15 +28,15 @@ const assetManagementCompanies = [
 const fadeInVariants = {
   hidden: {
     opacity: 0,
-    y: 20
+    y: 10
   },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.05,
-      duration: 0.4,
-      ease: "easeOut"
+      delay: i * 0.03, // Reduced delay for faster appearance
+      duration: 0.3, // Shorter animation duration
+      ease: [0.25, 0.1, 0.25, 1] // Using consistent cubic-bezier
     }
   })
 };
@@ -48,7 +48,7 @@ const EmpaneledCompanies = () => {
         <motion.div 
           initial={{
             opacity: 0,
-            y: 20
+            y: 10
           }} 
           whileInView={{
             opacity: 1,
@@ -56,11 +56,11 @@ const EmpaneledCompanies = () => {
           }} 
           viewport={{
             once: true,
-            margin: "-50px"
+            margin: "-10%" // Improved viewport margin for earlier detection
           }} 
           transition={{
-            duration: 0.5,
-            ease: "easeOut"
+            duration: 0.4,
+            ease: [0.25, 0.1, 0.25, 1] // Consistent easing function
           }} 
           className="text-center mb-12"
         >
@@ -77,7 +77,7 @@ const EmpaneledCompanies = () => {
               whileInView="visible" 
               viewport={{
                 once: true,
-                margin: "-50px"
+                margin: "-10%" // Improved viewport margin
               }} 
               variants={fadeInVariants} 
               className="flex flex-col items-center"
@@ -86,9 +86,11 @@ const EmpaneledCompanies = () => {
                 <img 
                   src={company.logo} 
                   alt={`${company.name} logo`}
-                  loading="eager"
-                  className="w-full max-h-24 object-contain transform scale-110" 
-                  style={{ imageRendering: 'crisp-edges' }}
+                  width="120" 
+                  height="60"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full max-h-24 object-contain transform scale-110 high-quality will-change-transform" 
                 />
               </div>
               <p className="mt-3 text-sm text-white text-center font-medium">{company.name}</p>

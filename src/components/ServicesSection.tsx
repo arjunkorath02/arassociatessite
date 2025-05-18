@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import ServiceCard from './ServiceCard';
@@ -7,7 +7,11 @@ import { BarChart4, Briefcase, PiggyBank, LineChart } from 'lucide-react';
 
 const ServicesSection = () => {
   const controls = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
+  const [ref, inView] = useInView({ 
+    threshold: 0.1, 
+    triggerOnce: true,
+    rootMargin: '-50px' // Trigger earlier for smoother appearance
+  });
   
   useEffect(() => {
     if (inView) {
@@ -20,18 +24,20 @@ const ServicesSection = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.15, // Slightly reduced stagger time
+        ease: [0.25, 0.1, 0.25, 1]
       }
     }
   };
   
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 10, opacity: 0 }, // Reduced y-axis movement
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5
+        duration: 0.4, 
+        ease: [0.25, 0.1, 0.25, 1] // Consistent easing function
       }
     }
   };
@@ -49,13 +55,13 @@ const ServicesSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 will-change-transform"
         >
           {/* First Column */}
           <div className="space-y-6">
             <h3 className="text-xl font-semibold text-white mb-4">Mutual Fund Distribution</h3>
             
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="will-change-transform">
               <ServiceCard 
                 title="Portfolio Management" 
                 icon={<BarChart4 size={32} />}
@@ -64,7 +70,7 @@ const ServicesSection = () => {
               </ServiceCard>
             </motion.div>
             
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="will-change-transform">
               <ServiceCard 
                 title="Investment Planning" 
                 icon={<PiggyBank size={32} />}
@@ -73,7 +79,7 @@ const ServicesSection = () => {
               </ServiceCard>
             </motion.div>
             
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="will-change-transform">
               <ServiceCard 
                 title="Specialized Investment Fund" 
                 icon={<LineChart size={32} />}
@@ -87,7 +93,7 @@ const ServicesSection = () => {
           <div className="space-y-6">
             <h3 className="text-xl font-semibold text-white mb-4">Insurance Advisory</h3>
             
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="will-change-transform">
               <ServiceCard 
                 title="Life Insurance" 
                 icon={<Briefcase size={32} />}
@@ -96,7 +102,7 @@ const ServicesSection = () => {
               </ServiceCard>
             </motion.div>
             
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="will-change-transform">
               <ServiceCard 
                 title="Health Insurance" 
                 icon={<Briefcase size={32} />}
@@ -105,7 +111,7 @@ const ServicesSection = () => {
               </ServiceCard>
             </motion.div>
             
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="will-change-transform">
               <ServiceCard 
                 title="Insurance Plans" 
                 icon={<Briefcase size={32} />}

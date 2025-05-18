@@ -18,17 +18,17 @@ const ServiceCard = ({ title, icon, children, className, delay = 0 }: ServiceCar
         "glass-card rounded-xl p-6 animated-card enhanced-glassmorphism",
         className
       )}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 10 }} // Reduced movement
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, margin: "-5%" }}
       transition={{
-        duration: 0.4,
+        duration: 0.3,
         delay: delay * 0.1,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: [0.25, 0.1, 0.25, 1] // Consistent easing function
       }}
       whileHover={{ 
-        y: -8,
-        transition: { duration: 0.3 }
+        y: -5, // Reduced hover movement
+        transition: { duration: 0.2 }
       }}
     >
       <div className="mb-4 text-financial-lightpurple">{icon}</div>

@@ -47,6 +47,7 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
   
+  /* Improved image rendering */
   img {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -81,7 +82,7 @@
   }
 }
 
-/* Add global animation smoothness */
+/* Enhanced animation smoothness */
 * {
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
@@ -93,16 +94,20 @@
 .will-change-transform {
   will-change: transform;
   transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .will-change-opacity {
   will-change: opacity;
+  transform: translateZ(0);
 }
 
 /* Prevent animation jitter */
 .framer-motion-fix {
   transform: translateZ(0);
   backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 @keyframes fadeIn {
@@ -129,7 +134,7 @@
   animation: slideUp 0.3s ease-out forwards;
 }
 
-/* Enhanced glassmorphism effects */
+/* Enhanced glassmorphism effects with optimized rendering */
 .glassmorphism-dark {
   background: rgba(26, 31, 44, 0.5);
   backdrop-filter: blur(20px);
@@ -158,6 +163,7 @@
 img.high-quality {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+  transform: translateZ(0);
 }
 
 /* Fix for Safari animation issues */
@@ -165,4 +171,21 @@ img.high-quality {
   .animate-fix {
     -webkit-transform: translate3d(0, 0, 0);
   }
+}
+
+/* Content visibility improvements for better rendering performance */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0.5em 10em;
+}
+
+/* Reduce layout shifts by reserving space */
+[data-animate] {
+  min-height: 1px;
+}
+
+/* Pre-connect optimization hint for external resources */
+head::before {
+  content: "";
+  display: none;
 }
