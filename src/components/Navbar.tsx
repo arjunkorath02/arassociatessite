@@ -2,9 +2,14 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { Menu, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +23,18 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   
   return (
     <header 
@@ -39,8 +56,67 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            <nav className="flex items-center space-x-6">
+              <button onClick={() => scrollToSection('services')} className="text-white hover:text-financial-lightpurple transition-colors">
+                {t('services')}
+              </button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-white hover:text-financial-lightpurple transition-colors">
+                {t('testimonials')}
+              </button>
+              <button onClick={() => scrollToSection('blog')} className="text-white hover:text-financial-lightpurple transition-colors">
+                {t('blog')}
+              </button>
+              <button onClick={() => scrollToSection('faq')} className="text-white hover:text-financial-lightpurple transition-colors">
+                {t('faq')}
+              </button>
+              <button onClick={() => scrollToSection('calculators')} className="text-white hover:text-financial-lightpurple transition-colors">
+                {t('calculators')}
+              </button>
+            </nav>
+            <LanguageSwitcher />
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <div className="flex md:hidden items-center space-x-2">
+            <LanguageSwitcher />
+            <button 
+              onClick={toggleMenu} 
+              className="p-2 rounded-lg bg-financial-purple/20 hover:bg-financial-purple/30 text-white"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
+      
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-financial-navy bg-opacity-95 backdrop-blur-lg">
+          <div className="container mx-auto px-4 py-4">
+            <nav className="flex flex-col space-y-4">
+              <button onClick={() => scrollToSection('services')} className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20">
+                {t('services')}
+              </button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20">
+                {t('testimonials')}
+              </button>
+              <button onClick={() => scrollToSection('blog')} className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20">
+                {t('blog')}
+              </button>
+              <button onClick={() => scrollToSection('faq')} className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20">
+                {t('faq')}
+              </button>
+              <button onClick={() => scrollToSection('calculators')} className="text-white hover:text-financial-lightpurple transition-colors py-2">
+                {t('calculators')}
+              </button>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

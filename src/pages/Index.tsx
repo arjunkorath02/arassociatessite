@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -9,6 +10,9 @@ import GoogleReviewSection from '@/components/GoogleReviewSection';
 import ContactSection from '@/components/ContactSection';
 import AUMSection from '@/components/AUMSection';
 import InsuranceServices from '@/components/InsuranceServices';
+import FAQSection from '@/components/FAQSection';
+import BlogSection from '@/components/BlogSection';
+import CalculatorSection from '@/components/CalculatorSection';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 
@@ -80,8 +84,11 @@ const Index = () => {
         <AUMSection />
         <TestimonialSection />
         <ChooseUsSection />
+        <BlogSection />
         <EmpaneledCompanies />
         <InsuranceServices />
+        <FAQSection />
+        <CalculatorSection />
         <GoogleReviewSection />
         <ContactSection />
         <Footer />
