@@ -21,7 +21,8 @@ const assetManagementCompanies = [
   { name: "HSBC Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/hsbc-mutual-fund-logo.svg" },
   { name: "Mirae Asset Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/Mirae%20Asset.svg" },
   { name: "PPFAS Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/ppfas-logo.png" },
-  { name: "Quant Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/quant-logo.png" }
+  { name: "Quant Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/quant-logo.png" },
+  { name: "LIC Mutual Fund", logo: "https://raw.githubusercontent.com/arjunkorath02/AMFI-Logos/main/LIC-Logo.png" }
 ];
 
 const fadeInVariants = {
