@@ -11,7 +11,6 @@ import ContactSection from '@/components/ContactSection';
 import AUMSection from '@/components/AUMSection';
 import InsuranceServices from '@/components/InsuranceServices';
 import FAQSection from '@/components/FAQSection';
-import BlogSection from '@/components/BlogSection';
 import CalculatorSection from '@/components/CalculatorSection';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
@@ -84,7 +83,6 @@ const Index = () => {
         <AUMSection />
         <TestimonialSection />
         <ChooseUsSection />
-        <BlogSection />
         <EmpaneledCompanies />
         <InsuranceServices />
         <FAQSection />
