@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -92,13 +91,13 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 14,
-    content: "I had a great experience with this mutual fund distributor and Insurance advisor (Health and Life) in Palakkad. They were very professional, transparent, and helped me understand the various options clearly before making any investment. The advice given was tailored to my financial goals, and I felt confident throughout the process. I really appreciate the time and effort taken to explain everything patiently. If you’re looking for trustworthy mutual fund and insurance services in Palakkad, I highly recommend them.",
+    content: "I had a great experience with this mutual fund distributor and Insurance advisor (Health and Life) in Palakkad. They were very professional, transparent, and helped me understand the various options clearly before making any investment. The advice given was tailored to my financial goals, and I felt confident throughout the process. I really appreciate the time and effort taken to explain everything patiently. If you're looking for trustworthy mutual fund and insurance services in Palakkad, I highly recommend them.",
     author: "Arjun Kotharamath",
     rating: 5
   },
   {
     id: 15,
-    content: "I had a great experience with this mutual fund distributor and insurance advisor in Palakkad. They took the time to understand my financial goals and provided clear, well-informed advice on both mutual fund investments and insurance plans. What impressed me the most was their transparent approach and genuine commitment to helping clients make the right choices. I feel much more confident about my financial planning after working with them. Highly recommended for anyone looking for trustworthy and personalized financial guidance in Palakkad.",
+    content: "I had a great experience with this mutual fund distributor and insurance advisor in Palakkad. They took the time to understand my financial goals and provided clear, well-informed advice on both mutual fund investments and insurance plans. What impressed me the most was their transparent approach and genuine commitment to helping clients make the right choices. I feel much more confident about my financial planning after working with them. Highly recommended for anyone looking for trustworthy and personalized financial guidance in Palakkad.",
     author: "Ashwin Kotharamath",
     rating: 5
   }
@@ -143,20 +142,16 @@ const TestimonialSection = () => {
   
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > 75) {
-      // Swipe left, go to next
       nextTestimonial();
     }
     
     if (touchStart - touchEnd < -75) {
-      // Swipe right, go to previous
       prevTestimonial();
     }
     
-    // Reset touch positions
     setTouchStart(0);
     setTouchEnd(0);
     
-    // Resume autoplay after 3 seconds
     setTimeout(() => setIsPaused(false), 3000);
   };
   
@@ -194,7 +189,7 @@ const TestimonialSection = () => {
   };
 
   return (
-    <section className="section-padding bg-gradient-to-b from-financial-purple/50 to-financial-purple/30">
+    <section id="testimonials" className="section-padding bg-gradient-to-b from-financial-purple/50 to-financial-purple/30">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Client Testimonials</h2>

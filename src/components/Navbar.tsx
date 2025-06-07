@@ -31,13 +31,23 @@ const Navbar = () => {
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
     
+    // If we're not on the homepage, navigate to homepage first
+    if (location.pathname !== '/') {
+      window.location.href = `/#${id}`;
+      return;
+    }
+    
     // If we're already on the homepage, scroll to the section
-    if (location.pathname === '/') {
+    setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    }
+    }, 100);
+  };
+
+  const handleNavClick = (id: string) => {
+    scrollToSection(id);
   };
   
   return (
@@ -46,7 +56,6 @@ const Navbar = () => {
         "fixed top-0 left-0 w-full z-50 transition-all duration-300",
         isScrolled ? "bg-financial-navy bg-opacity-80 backdrop-blur-md shadow-lg" : "bg-transparent"
       )}
-      style={{ position: "fixed" }}
     >
       <div className="container mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
@@ -65,20 +74,18 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex items-center space-x-6">
-              <Link 
-                to="/#services" 
-                onClick={() => scrollToSection('services')} 
-                className="text-white hover:text-financial-lightpurple transition-colors"
+              <button 
+                onClick={() => handleNavClick('services')} 
+                className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
                 {t('services')}
-              </Link>
-              <Link 
-                to="/#testimonials" 
-                onClick={() => scrollToSection('testimonials')} 
-                className="text-white hover:text-financial-lightpurple transition-colors"
+              </button>
+              <button 
+                onClick={() => handleNavClick('testimonials')} 
+                className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
                 {t('testimonials')}
-              </Link>
+              </button>
               <Link 
                 to="/faq" 
                 className="text-white hover:text-financial-lightpurple transition-colors"
@@ -112,20 +119,18 @@ const Navbar = () => {
         <div className="md:hidden bg-financial-navy bg-opacity-95 backdrop-blur-lg">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                to="/#services" 
-                onClick={() => scrollToSection('services')}
-                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20"
+              <button 
+                onClick={() => handleNavClick('services')}
+                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"
               >
                 {t('services')}
-              </Link>
-              <Link 
-                to="/#testimonials" 
-                onClick={() => scrollToSection('testimonials')}
-                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20"
+              </button>
+              <button 
+                onClick={() => handleNavClick('testimonials')}
+                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"
               >
                 {t('testimonials')}
-              </Link>
+              </button>
               <Link 
                 to="/faq" 
                 className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20"
