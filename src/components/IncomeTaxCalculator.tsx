@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Calculator, FileText } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Calculator, FileText, Info } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface TaxBreakdown {
@@ -29,27 +30,47 @@ const IncomeTaxCalculator = () => {
     section80D: '',
     homeLoanInterest: '',
     otherDeductions: '',
-    age: 'below60'
+    age: 'below60',
+    assessmentYear: '2024-25'
   });
 
   const [result, setResult] = useState<TaxBreakdown | null>(null);
 
-  // Tax slabs for AY 2024-25
-  const oldRegimeSlabs = [
-    { min: 0, max: 250000, rate: 0 },
-    { min: 250000, max: 500000, rate: 5 },
-    { min: 500000, max: 1000000, rate: 20 },
-    { min: 1000000, max: Infinity, rate: 30 }
-  ];
-
-  const newRegimeSlabs = [
-    { min: 0, max: 300000, rate: 0 },
-    { min: 300000, max: 600000, rate: 5 },
-    { min: 600000, max: 900000, rate: 10 },
-    { min: 900000, max: 1200000, rate: 15 },
-    { min: 1200000, max: 1500000, rate: 20 },
-    { min: 1500000, max: Infinity, rate: 30 }
-  ];
+  // Tax slabs for different assessment years
+  const taxSlabs = {
+    '2024-25': {
+      old: [
+        { min: 0, max: 250000, rate: 0 },
+        { min: 250000, max: 500000, rate: 5 },
+        { min: 500000, max: 1000000, rate: 20 },
+        { min: 1000000, max: Infinity, rate: 30 }
+      ],
+      new: [
+        { min: 0, max: 300000, rate: 0 },
+        { min: 300000, max: 600000, rate: 5 },
+        { min: 600000, max: 900000, rate: 10 },
+        { min: 900000, max: 1200000, rate: 15 },
+        { min: 1200000, max: 1500000, rate: 20 },
+        { min: 1500000, max: Infinity, rate: 30 }
+      ]
+    },
+    '2025-26': {
+      old: [
+        { min: 0, max: 300000, rate: 0 },
+        { min: 300000, max: 600000, rate: 5 },
+        { min: 600000, max: 1200000, rate: 20 },
+        { min: 1200000, max: Infinity, rate: 30 }
+      ],
+      new: [
+        { min: 0, max: 300000, rate: 0 },
+        { min: 300000, max: 700000, rate: 5 },
+        { min: 700000, max: 1000000, rate: 10 },
+        { min: 1000000, max: 1200000, rate: 15 },
+        { min: 1200000, max: 1500000, rate: 20 },
+        { min: 1500000, max: Infinity, rate: 30 }
+      ]
+    }
+  };
 
   const calculateTax = (income: number, slabs: any[], allowStandardDeduction = false) => {
     let taxableIncome = income;
@@ -75,18 +96,22 @@ const IncomeTaxCalculator = () => {
                        parseFloat(formData.hra || '0') + 
                        parseFloat(formData.otherAllowances || '0');
 
+    // Apply deduction limits
+    const section80C = Math.min(parseFloat(formData.section80C || '0'), 150000);
+    const section80D = Math.min(parseFloat(formData.section80D || '0'), 50000);
+    const homeLoanInterest = Math.min(parseFloat(formData.homeLoanInterest || '0'), 200000);
+
     // Old Regime Calculation
-    const totalDeductions = parseFloat(formData.section80C || '0') + 
-                           parseFloat(formData.section80D || '0') + 
-                           parseFloat(formData.homeLoanInterest || '0') + 
+    const totalDeductions = section80C + section80D + homeLoanInterest + 
                            parseFloat(formData.otherDeductions || '0') +
                            parseFloat(formData.standardDeduction || '0');
 
     const oldRegimeIncome = Math.max(0, grossSalary - totalDeductions);
-    const oldRegimeResult = calculateTax(oldRegimeIncome, oldRegimeSlabs);
+    const selectedYear = formData.assessmentYear as keyof typeof taxSlabs;
+    const oldRegimeResult = calculateTax(oldRegimeIncome, taxSlabs[selectedYear].old);
 
     // New Regime Calculation (no deductions except standard)
-    const newRegimeResult = calculateTax(grossSalary, newRegimeSlabs, true);
+    const newRegimeResult = calculateTax(grossSalary, taxSlabs[selectedYear].new, true);
 
     // Education Cess (4% on tax)
     const oldRegimeEducationCess = oldRegimeResult.tax * 0.04;
@@ -126,18 +151,34 @@ const IncomeTaxCalculator = () => {
       transition={{ duration: 0.6 }}
       className="w-full max-w-6xl mx-auto"
     >
-      <Card className="glass-card border-financial-purple/30">
+      <Card className="enhanced-glassmorphism border-financial-purple/30">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="bg-financial-purple/30 p-3 rounded-full">
               <FileText className="h-6 w-6 text-financial-lightpurple" />
             </div>
           </div>
-          <CardTitle className="text-2xl text-white">Income Tax Calculator (AY 2024-25)</CardTitle>
+          <CardTitle className="text-2xl text-white">Income Tax Calculator</CardTitle>
           <p className="text-gray-300">Calculate your tax liability under both old and new tax regimes</p>
         </CardHeader>
         
         <CardContent className="space-y-6">
+          {/* Assessment Year Selection */}
+          <div className="flex justify-center mb-6">
+            <div className="w-full max-w-xs">
+              <Label htmlFor="assessmentYear" className="text-white">Assessment Year</Label>
+              <Select value={formData.assessmentYear} onValueChange={(value) => handleInputChange('assessmentYear', value)}>
+                <SelectTrigger className="bg-financial-navy/50 border-financial-purple/30 text-white">
+                  <SelectValue placeholder="Select Assessment Year" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="2024-25">AY 2024-25</SelectItem>
+                  <SelectItem value="2025-26">AY 2025-26</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Income Details */}
             <div className="space-y-4">
@@ -185,7 +226,13 @@ const IncomeTaxCalculator = () => {
               <h3 className="text-lg font-semibold text-white mb-4">Deductions (Old Regime)</h3>
               
               <div>
-                <Label htmlFor="section80C" className="text-white">Section 80C (Max ₹1.5L)</Label>
+                <div className="flex items-center gap-2 mb-1">
+                  <Label htmlFor="section80C" className="text-white">Section 80C</Label>
+                  <div className="flex items-center gap-1 text-financial-lightpurple">
+                    <Info size={14} />
+                    <span className="text-xs">Max ₹1.5L</span>
+                  </div>
+                </div>
                 <Input
                   id="section80C"
                   type="number"
@@ -197,7 +244,13 @@ const IncomeTaxCalculator = () => {
               </div>
               
               <div>
-                <Label htmlFor="section80D" className="text-white">Section 80D (Health Insurance)</Label>
+                <div className="flex items-center gap-2 mb-1">
+                  <Label htmlFor="section80D" className="text-white">Section 80D</Label>
+                  <div className="flex items-center gap-1 text-financial-lightpurple">
+                    <Info size={14} />
+                    <span className="text-xs">Max ₹50K</span>
+                  </div>
+                </div>
                 <Input
                   id="section80D"
                   type="number"
@@ -209,7 +262,13 @@ const IncomeTaxCalculator = () => {
               </div>
               
               <div>
-                <Label htmlFor="homeLoanInterest" className="text-white">Home Loan Interest (Max ₹2L)</Label>
+                <div className="flex items-center gap-2 mb-1">
+                  <Label htmlFor="homeLoanInterest" className="text-white">Home Loan Interest</Label>
+                  <div className="flex items-center gap-1 text-financial-lightpurple">
+                    <Info size={14} />
+                    <span className="text-xs">Max ₹2L</span>
+                  </div>
+                </div>
                 <Input
                   id="homeLoanInterest"
                   type="number"
@@ -330,7 +389,8 @@ const IncomeTaxCalculator = () => {
           )}
 
           <div className="text-center text-sm text-gray-400 mt-6">
-            <p>* This calculator is based on Income Tax slabs for AY 2024-25</p>
+            <p>* This calculator is based on Income Tax slabs for {formData.assessmentYear}</p>
+            <p>* Deduction limits: 80C (₹1.5L), 80D (₹50K), Home Loan Interest (₹2L)</p>
             <p>* Please consult a tax advisor for accurate tax planning</p>
           </div>
         </CardContent>

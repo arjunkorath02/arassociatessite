@@ -1,87 +1,46 @@
 
-import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import { FileText } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-
-interface BlogPost {
-  id: string;
-  title: {
-    en: string;
-    ml: string;
-  };
-  excerpt: {
-    en: string;
-    ml: string;
-  };
-  date: string;
-  image: string;
-  category: {
-    en: string;
-    ml: string;
-  };
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    id: "mutual-funds-explained",
-    title: {
-      en: "Understanding Mutual Funds: A Beginner's Guide",
-      ml: "മ്യൂച്വൽ ഫണ്ടുകൾ മനസ്സിലാക്കുന്നു: ഒരു തുടക്കക്കാരന്റെ ഗൈഡ്"
-    },
-    excerpt: {
-      en: "Learn about the basics of mutual funds, how they work, and why they're a popular investment option for beginners and experienced investors alike.",
-      ml: "മ്യൂച്വൽ ഫണ്ടുകളുടെ അടിസ്ഥാനകാര്യങ്ങൾ, അവ എങ്ങനെ പ്രവർത്തിക്കുന്നു, തുടക്കക്കാർക്കും പരിചയസമ്പന്നരായ നിക്ഷേപകർക്കും ഒരുപോലെ അവ എന്തുകൊണ്ട് ജനപ്രിയ നിക്ഷേപ ഓപ്ഷനാണെന്നും മനസ്സിലാക്കുക."
-    },
-    date: "2023-04-15",
-    image: "https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png",
-    category: {
-      en: "Investments",
-      ml: "നിക്ഷേപങ്ങൾ"
-    }
-  },
-  {
-    id: "retirement-planning",
-    title: {
-      en: "The Power of Early Retirement Planning",
-      ml: "നേരത്തെയുള്ള വിരമിക്കൽ ആസൂത്രണത്തിന്റെ ശക്തി"
-    },
-    excerpt: {
-      en: "Discover why starting your retirement planning early can make a significant difference in your financial security during your golden years.",
-      ml: "നിങ്ങളുടെ വിരമിക്കൽ ആസൂത്രണം നേരത്തെ ആരംഭിക്കുന്നത് നിങ്ങളുടെ സുവർണ്ണ വർഷങ്ങളിൽ നിങ്ങളുടെ സാമ്പത്തിക സുരക്ഷയിൽ ഗണ്യമായ വ്യത്യാസം വരുത്താൻ കഴിയുന്നതെന്തുകൊണ്ടെന്ന് കണ്ടെത്തുക."
-    },
-    date: "2023-05-02",
-    image: "https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png",
-    category: {
-      en: "Retirement",
-      ml: "വിരമിക്കൽ"
-    }
-  },
-  {
-    id: "insurance-importance",
-    title: {
-      en: "Why Insurance is a Critical Part of Financial Planning",
-      ml: "സാമ്പത്തിക ആസൂത്രണത്തിൽ ഇൻഷുറൻസ് എന്തുകൊണ്ട് നിർണായകമാണ്"
-    },
-    excerpt: {
-      en: "Insurance is often overlooked in financial planning. Learn why adequate coverage is essential for protecting your wealth and financial future.",
-      ml: "സാമ്പത്തിക ആസൂത്രണത്തിൽ ഇൻഷുറൻസ് പലപ്പോഴും അവഗണിക്കപ്പെടുന്നു. നിങ്ങളുടെ സമ്പത്തും സാമ്പത്തിക ഭാവിയും സംരക്ഷിക്കുന്നതിന് മതിയായ കവറേജ് എന്തുകൊണ്ട് അത്യാവശ്യമാണെന്ന് മനസ്സിലാക്കുക."
-    },
-    date: "2023-05-18",
-    image: "https://raw.githubusercontent.com/ARAssociates23/AR-Associates-logo/main/AR%20Associates%20Logo.png",
-    category: {
-      en: "Insurance",
-      ml: "ഇൻഷുറൻസ്"
-    }
-  }
-];
+import { Calendar, User, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const BlogSection = () => {
-  const { language, t } = useLanguage();
-  
+  const { t } = useLanguage();
+
+  const blogs = [
+    {
+      id: 1,
+      title: 'Understanding Mutual Fund SIPs',
+      excerpt: 'Learn how Systematic Investment Plans can help you build wealth over time with disciplined investing.',
+      author: 'AR Associates',
+      date: '2024-03-15',
+      image: '/lovable-uploads/a4ce71d1-72e0-4c93-8b20-49dc317c9558.png',
+      category: 'Investment'
+    },
+    {
+      id: 2,
+      title: 'Tax Saving Investment Options',
+      excerpt: 'Explore various tax-saving investment instruments under Section 80C and maximize your returns.',
+      author: 'AR Associates',
+      date: '2024-03-10',
+      image: '/lovable-uploads/6b75a38c-f124-4d76-ba2b-ce696ef09c77.png',
+      category: 'Tax Planning'
+    },
+    {
+      id: 3,
+      title: 'Life Insurance vs Term Insurance',
+      excerpt: 'Understand the key differences and choose the right insurance policy for your family.',
+      author: 'AR Associates',
+      date: '2024-03-05',
+      image: '/lovable-uploads/9e86d84a-c22c-4382-9a82-59007e1714b0.png',
+      category: 'Insurance'
+    }
+  ];
+
   return (
-    <section id="blog" className="section-padding bg-gradient-to-b from-financial-navy/50 to-financial-darkpurple/50">
-      <div className="container mx-auto px-4">
+    <section className="section-padding bg-financial-navy bg-opacity-50 backdrop-blur-md">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -89,55 +48,64 @@ const BlogSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="flex justify-center mb-4">
-            <div className="bg-financial-purple/30 p-3 rounded-full">
-              <FileText className="h-6 w-6 text-financial-lightpurple" />
-            </div>
-          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('blogTitle')}</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">{t('blogSubtitle')}</p>
         </motion.div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
+          {blogs.map((blog, index) => (
             <motion.div
-              key={post.id}
-              className="glass-card rounded-xl overflow-hidden hover:scale-[1.03] transition-transform duration-300"
+              key={blog.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <div className="h-48 bg-financial-darkpurple/50 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={language === 'en' ? post.title.en : post.title.ml} 
-                  className="w-full h-full object-cover opacity-70"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-xs font-medium text-financial-lightpurple bg-financial-purple/20 px-3 py-1 rounded-full">
-                    {language === 'en' ? post.category.en : post.category.ml}
-                  </span>
-                  <span className="text-xs text-gray-400">
-                    {new Date(post.date).toLocaleDateString(language === 'en' ? 'en-US' : 'ml-IN', {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric'
-                    })}
-                  </span>
+              <Card className="enhanced-glassmorphism border-0 overflow-hidden group hover:shadow-2xl transition-all duration-500">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={blog.image} 
+                    alt={blog.title}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-financial-lightpurple text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {blog.category}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {language === 'en' ? post.title.en : post.title.ml}
-                </h3>
-                <p className="text-gray-300 mb-4">
-                  {language === 'en' ? post.excerpt.en : post.excerpt.ml}
-                </p>
-                <Button variant="ghost" className="text-financial-lightpurple hover:text-white hover:bg-financial-purple/30">
-                  {t('readMore')} &rarr;
-                </Button>
-              </div>
+                
+                <CardHeader>
+                  <CardTitle className="text-white group-hover:text-financial-lightpurple transition-colors duration-300">
+                    {blog.title}
+                  </CardTitle>
+                </CardHeader>
+                
+                <CardContent className="space-y-4">
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {blog.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center justify-between text-sm text-gray-400">
+                    <div className="flex items-center gap-2">
+                      <User size={16} />
+                      <span>{blog.author}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar size={16} />
+                      <span>{blog.date}</span>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    variant="ghost" 
+                    className="w-full text-financial-lightpurple hover:text-white hover:bg-financial-purple/20 group/btn"
+                  >
+                    Read More
+                    <ArrowRight size={16} className="ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>

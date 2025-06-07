@@ -3,12 +3,10 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useLanguage();
   const location = useLocation();
   
   useEffect(() => {
@@ -78,26 +76,26 @@ const Navbar = () => {
                 onClick={() => handleNavClick('services')} 
                 className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
-                {t('services')}
+                Services
               </button>
               <button 
                 onClick={() => handleNavClick('testimonials')} 
                 className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
-                {t('testimonials')}
+                Testimonials
               </button>
-              <Link 
-                to="/faq" 
-                className="text-white hover:text-financial-lightpurple transition-colors"
+              <button 
+                onClick={() => handleNavClick('faq')} 
+                className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
-                {t('faq')}
-              </Link>
-              <Link 
-                to="/calculators" 
-                className="text-white hover:text-financial-lightpurple transition-colors"
+                FAQ
+              </button>
+              <button 
+                onClick={() => handleNavClick('calculators')} 
+                className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
-                {t('calculators')}
-              </Link>
+                Calculators
+              </button>
             </nav>
           </div>
           
@@ -123,28 +121,26 @@ const Navbar = () => {
                 onClick={() => handleNavClick('services')}
                 className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"
               >
-                {t('services')}
+                Services
               </button>
               <button 
                 onClick={() => handleNavClick('testimonials')}
                 className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"
               >
-                {t('testimonials')}
+                Testimonials
               </button>
-              <Link 
-                to="/faq" 
-                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20"
-                onClick={() => setIsMenuOpen(false)}
+              <button 
+                onClick={() => handleNavClick('faq')}
+                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"
               >
-                {t('faq')}
-              </Link>
-              <Link 
-                to="/calculators" 
+                FAQ
+              </button>
+              <button 
+                onClick={() => handleNavClick('calculators')}
                 className="text-white hover:text-financial-lightpurple transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
               >
-                {t('calculators')}
-              </Link>
+                Calculators
+              </button>
             </nav>
           </div>
         </div>
