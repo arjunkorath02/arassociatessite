@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -136,6 +135,10 @@ const IncomeTaxCalculator = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const handleAssessmentYearChange = (value: string) => {
+    handleInputChange('assessmentYear', value);
+  };
+
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -167,13 +170,13 @@ const IncomeTaxCalculator = () => {
           <div className="flex justify-center mb-6">
             <div className="w-full max-w-xs">
               <Label htmlFor="assessmentYear" className="text-white">Assessment Year</Label>
-              <Select value={formData.assessmentYear} onValueChange={(value) => handleInputChange('assessmentYear', value)}>
+              <Select value={formData.assessmentYear} onValueChange={handleAssessmentYearChange}>
                 <SelectTrigger className="bg-financial-navy/50 border-financial-purple/30 text-white">
                   <SelectValue placeholder="Select Assessment Year" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="2024-25">AY 2024-25</SelectItem>
-                  <SelectItem value="2025-26">AY 2025-26</SelectItem>
+                <SelectContent className="bg-financial-navy border-financial-purple/30">
+                  <SelectItem value="2024-25" className="text-white hover:bg-financial-purple/20">AY 2024-25</SelectItem>
+                  <SelectItem value="2025-26" className="text-white hover:bg-financial-purple/20">AY 2025-26</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -389,7 +392,7 @@ const IncomeTaxCalculator = () => {
           )}
 
           <div className="text-center text-sm text-gray-400 mt-6">
-            <p>* This calculator is based on Income Tax slabs for {formData.assessmentYear}</p>
+            <p>* This calculator is based on Income Tax slabs.</p>
             <p>* Deduction limits: 80C (₹1.5L), 80D (₹50K), Home Loan Interest (₹2L)</p>
             <p>* Please consult a tax advisor for accurate tax planning</p>
           </div>
