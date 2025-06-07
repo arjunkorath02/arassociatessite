@@ -73,12 +73,6 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex items-center space-x-6">
               <button 
-                onClick={() => handleNavClick('services')} 
-                className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
-              >
-                Services
-              </button>
-              <button 
                 onClick={() => handleNavClick('testimonials')} 
                 className="text-white hover:text-financial-lightpurple transition-colors cursor-pointer"
               >
@@ -117,12 +111,6 @@ const Navbar = () => {
         <div className="md:hidden bg-financial-navy bg-opacity-95 backdrop-blur-lg">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              <button 
-                onClick={() => handleNavClick('services')}
-                className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"
-              >
-                Services
-              </button>
               <button 
                 onClick={() => handleNavClick('testimonials')}
                 className="text-white hover:text-financial-lightpurple transition-colors py-2 border-b border-financial-purple/20 text-left"

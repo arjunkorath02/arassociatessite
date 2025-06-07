@@ -136,7 +136,7 @@ const IncomeTaxCalculator = () => {
   };
 
   const handleAssessmentYearChange = (value: string) => {
-    handleInputChange('assessmentYear', value);
+    setFormData(prev => ({ ...prev, assessmentYear: value }));
   };
 
   const formatCurrency = (amount: number) => {
@@ -182,117 +182,115 @@ const IncomeTaxCalculator = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Income Details */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white mb-4">Income Details</h3>
-              
-              <div>
-                <Label htmlFor="basicSalary" className="text-white">Basic Salary (Annual)</Label>
-                <Input
-                  id="basicSalary"
-                  type="number"
-                  placeholder="Enter basic salary"
-                  value={formData.basicSalary}
-                  onChange={(e) => handleInputChange('basicSalary', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="hra" className="text-white">HRA (Annual)</Label>
-                <Input
-                  id="hra"
-                  type="number"
-                  placeholder="Enter HRA"
-                  value={formData.hra}
-                  onChange={(e) => handleInputChange('hra', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
-              </div>
-              
-              <div>
-                <Label htmlFor="otherAllowances" className="text-white">Other Allowances (Annual)</Label>
-                <Input
-                  id="otherAllowances"
-                  type="number"
-                  placeholder="Enter other allowances"
-                  value={formData.otherAllowances}
-                  onChange={(e) => handleInputChange('otherAllowances', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
-              </div>
+          {/* Income Details */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white mb-4">Income Details</h3>
+            
+            <div>
+              <Label htmlFor="basicSalary" className="text-white">Basic Salary (Annual)</Label>
+              <Input
+                id="basicSalary"
+                type="number"
+                placeholder="Enter basic salary"
+                value={formData.basicSalary}
+                onChange={(e) => handleInputChange('basicSalary', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
             </div>
+            
+            <div>
+              <Label htmlFor="hra" className="text-white">HRA (Annual)</Label>
+              <Input
+                id="hra"
+                type="number"
+                placeholder="Enter HRA"
+                value={formData.hra}
+                onChange={(e) => handleInputChange('hra', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
+            </div>
+            
+            <div>
+              <Label htmlFor="otherAllowances" className="text-white">Other Allowances (Annual)</Label>
+              <Input
+                id="otherAllowances"
+                type="number"
+                placeholder="Enter other allowances"
+                value={formData.otherAllowances}
+                onChange={(e) => handleInputChange('otherAllowances', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
+            </div>
+          </div>
 
-            {/* Deductions (Old Regime Only) */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-white mb-4">Deductions (Old Regime)</h3>
-              
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Label htmlFor="section80C" className="text-white">Section 80C</Label>
-                  <div className="flex items-center gap-1 text-financial-lightpurple">
-                    <Info size={14} />
-                    <span className="text-xs">Max ₹1.5L</span>
-                  </div>
+          {/* Deductions (Old Regime Only) */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold text-white mb-4">Deductions (Old Regime)</h3>
+            
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Label htmlFor="section80C" className="text-white">Section 80C</Label>
+                <div className="flex items-center gap-1 text-financial-lightpurple">
+                  <Info size={14} />
+                  <span className="text-xs">Max ₹1.5L</span>
                 </div>
-                <Input
-                  id="section80C"
-                  type="number"
-                  placeholder="Enter 80C deductions"
-                  value={formData.section80C}
-                  onChange={(e) => handleInputChange('section80C', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
               </div>
-              
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Label htmlFor="section80D" className="text-white">Section 80D</Label>
-                  <div className="flex items-center gap-1 text-financial-lightpurple">
-                    <Info size={14} />
-                    <span className="text-xs">Max ₹50K</span>
-                  </div>
+              <Input
+                id="section80C"
+                type="number"
+                placeholder="Enter 80C deductions"
+                value={formData.section80C}
+                onChange={(e) => handleInputChange('section80C', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
+            </div>
+            
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Label htmlFor="section80D" className="text-white">Section 80D</Label>
+                <div className="flex items-center gap-1 text-financial-lightpurple">
+                  <Info size={14} />
+                  <span className="text-xs">Max ₹50K</span>
                 </div>
-                <Input
-                  id="section80D"
-                  type="number"
-                  placeholder="Enter 80D deductions"
-                  value={formData.section80D}
-                  onChange={(e) => handleInputChange('section80D', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
               </div>
-              
-              <div>
-                <div className="flex items-center gap-2 mb-1">
-                  <Label htmlFor="homeLoanInterest" className="text-white">Home Loan Interest</Label>
-                  <div className="flex items-center gap-1 text-financial-lightpurple">
-                    <Info size={14} />
-                    <span className="text-xs">Max ₹2L</span>
-                  </div>
+              <Input
+                id="section80D"
+                type="number"
+                placeholder="Enter 80D deductions"
+                value={formData.section80D}
+                onChange={(e) => handleInputChange('section80D', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
+            </div>
+            
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <Label htmlFor="homeLoanInterest" className="text-white">Home Loan Interest</Label>
+                <div className="flex items-center gap-1 text-financial-lightpurple">
+                  <Info size={14} />
+                  <span className="text-xs">Max ₹2L</span>
                 </div>
-                <Input
-                  id="homeLoanInterest"
-                  type="number"
-                  placeholder="Enter home loan interest"
-                  value={formData.homeLoanInterest}
-                  onChange={(e) => handleInputChange('homeLoanInterest', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
               </div>
-              
-              <div>
-                <Label htmlFor="otherDeductions" className="text-white">Other Deductions</Label>
-                <Input
-                  id="otherDeductions"
-                  type="number"
-                  placeholder="Enter other deductions"
-                  value={formData.otherDeductions}
-                  onChange={(e) => handleInputChange('otherDeductions', e.target.value)}
-                  className="bg-financial-navy/50 border-financial-purple/30 text-white"
-                />
-              </div>
+              <Input
+                id="homeLoanInterest"
+                type="number"
+                placeholder="Enter home loan interest"
+                value={formData.homeLoanInterest}
+                onChange={(e) => handleInputChange('homeLoanInterest', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
+            </div>
+            
+            <div>
+              <Label htmlFor="otherDeductions" className="text-white">Other Deductions</Label>
+              <Input
+                id="otherDeductions"
+                type="number"
+                placeholder="Enter other deductions"
+                value={formData.otherDeductions}
+                onChange={(e) => handleInputChange('otherDeductions', e.target.value)}
+                className="bg-financial-navy/50 border-financial-purple/30 text-white"
+              />
             </div>
           </div>
 
